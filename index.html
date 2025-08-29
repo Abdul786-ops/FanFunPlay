@@ -8,7 +8,67 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/home.css">
-  
+    <style>
+        /* Additional styles for footer clarity */
+        footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 3rem 0 1.5rem;
+            color: #f8f9fa;
+        }
+        
+        footer h4, footer h5 {
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        footer a {
+            color: #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: #6a11cb;
+            text-decoration: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            margin-right: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .about-section {
+            background: #0f0f1e;
+            padding: 4rem 0;
+            color: #e9ecef;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <!-- Age Verification Modal -->
@@ -224,17 +284,33 @@
                 </div>
             </div>
         </section>
+
+        <!-- About Us Section -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <h2 class="section-title mb-4">About FanFunPlay</h2>
+                    <p class="lead mb-4">Fanfunplay.com develops themed social games designed for casual players who enjoy quick and entertaining experiences. Our games emphasize simplicity, clear visuals, and self-contained play, without any gambling elements. The chicken game is one of our expanding range of light, accessible titles created for short bursts of fun. All games are free to play and intended for users 18 years and older.</p>
+                    <div class="alert alert-info mt-4">
+                        <i class="fas fa-info-circle me-2"></i> All our games are created for entertainment purposes only and contain no real-money gambling elements.
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Footer -->
-    <footer>
+   <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <h4 class="mb-4">FanFunPlay</h4>
-                    <p>The ultimate destination for social casino entertainment. Play responsibly and for fun only.</p>
+                    <p class="mb-4">The ultimate destination for social casino entertainment. Play responsibly and for fun only.</p>
+                    <div class="footer-notice">
+                        <p class="mb-0"><strong>Important Notice:</strong> The content on this website is intended for individuals 18 years of age or older. Fanfunplay.com is a social platform offering games for free entertainment. No real money is involved—players cannot wager, win, or exchange real currency through gameplay. Please note that progress or achievements on this site do not reflect or guarantee success in real-money gambling.</p>
+                    </div>
                     <div class="mt-4">
-                        <h5>Responsible Gaming</h5>
+                        <h5 class="mb-3">Responsible Gaming</h5>
                         <div class="d-flex flex-wrap">
                             <a href="https://www.gamblingtherapy.org/" target="_blank" class="me-3 mb-2">
                                 <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'><rect width='100' height='40' fill='%23f8f9fa' rx='5'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='10' fill='%23121212'>Gambling Therapy</text></svg>" alt="Gambling Therapy" class="img-fluid" style="max-height: 30px;">
@@ -250,17 +326,19 @@
                 </div>
                 <div class="col-lg-2 col-md-4 mb-4">
                     <h5 class="mb-4">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
-                        <li class="mb-2"><a href="play.html" class="text-white text-decoration-none">Play</a></li>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="play.html">Play Games</a></li>
+                        <li class="mb-2"><a href="#about">About Us</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-4 mb-4">
                     <h5 class="mb-4">Legal</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="terms.html" class="text-white text-decoration-none">Terms & Conditions</a></li>
-                        <li class="mb-2"><a href="privacy.html" class="text-white text-decoration-none">Privacy Policy</a></li>
-                        <li class="mb-2"><a href="disclaimer.html" class="text-white text-decoration-none">Disclaimer</a></li>
+                    <ul class="list-unstyled footer-links">
+                        <li class="mb-2"><a href="terms.html">Terms & Conditions</a></li>
+                        <li class="mb-2"><a href="privacy.html">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="disclaimer.html">Disclaimer</a></li>
+                        <li class="mb-2"><a href="#responsible">Responsible Gaming</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-4 mb-4">
@@ -271,11 +349,16 @@
                         <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
                     </div>
+                    <div class="mt-4">
+                        <h5 class="mb-3">Contact</h5>
+                        <p class="small mb-1">Email: support@fanfunplay.com</p>
+                        <p class="small">Response within 24 hours</p>
+                    </div>
                 </div>
             </div>
             <hr class="my-4 bg-light">
-            <div class="text-center">
-                <p>&copy; 2023 FanFunPlay. All rights reserved. This is a social casino website for entertainment purposes only. No real money gambling is involved.</p>
+            <div class="text-center copyright">
+                <p>&copy; 2025 FanFunPlay. All rights reserved. This is a social casino website for entertainment purposes only. No real money gambling is involved.</p>
             </div>
         </div>
     </footer>
