@@ -3,30 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - FanFunPlay Social Casino</title>
+    <title>Spinzylo - Premium Social Entertainment</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/privacy.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #7c3aed;
+            --secondary-color: #5b21b6;
+            --accent-color: #06b6d4;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-light: #f1f5f9;
+            --text-muted: #94a3b8;
+            --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Rubik', sans-serif;
+            font-weight: 600;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+        }
+        
+        .navbar-brand span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            background: var(--gradient);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+        }
+        
+        /* Content Cards */
+        .content-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Section Titles */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0a0f1d 0%, #111827 100%);
+            padding: 4rem 0 1.5rem;
+            color: var(--text-light);
+            position: relative;
+            margin-top: 4rem;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--gradient);
+        }
+        
+        footer h4, footer h5 {
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+        
+        footer a {
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: var(--accent-color);
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            margin-right: 0.75rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: var(--gradient);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 3rem;
+        }
+        
+        /* Legal Content Styling */
+        .legal-content {
+            line-height: 1.8;
+        }
+        
+        .legal-content h2 {
+            color: var(--primary-color);
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .legal-content h3 {
+            color: var(--accent-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .legal-content ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .legal-content ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .update-date {
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 2rem;
+            display: block;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .content-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <i class="fas fa-dice me-2"></i>Fan<span>Fun</span>Play
+                <i class="fas fa-coins me-2"></i>Spin<span>zylo</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-             <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="play.html">Play</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="disclaimer.html">Disclaimer</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="terms.html">Terms</a>
@@ -34,139 +255,104 @@
                     <li class="nav-item">
                         <a class="nav-link" href="privacy.html">Privacy</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="disclaimer.html">Disclaimer</a>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+ 
+
     <!-- Privacy Policy Page Content -->
-    <div class="page-content">
-        <div class="container">
-            <div class="content-container">
-                <h2 class="text-center section-title">Privacy Policy</h2>
-                <div class="content-card">
-                    <div class="alert alert-info">
-                        <strong>Last Updated:</strong> January 1, 2023
+    <div id="privacy-page" class="page-content" style="display: none;">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="content-card">
+                        <h1 class="text-center section-title">Privacy Policy</h1>
+                        <span class="update-date">Last Updated: January 15, 2025</span>
+                        
+                        <div class="legal-content">
+                            <h2>1. Introduction</h2>
+                            <p>At Spinzylo, we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our social entertainment platform.</p>
+                            
+                            <h2>2. Information We Collect</h2>
+                            <h3>2.1. Personal Information</h3>
+                            <p>When you register for an account, we may collect personal information such as:</p>
+                            <ul>
+                                <li>Email address</li>
+                                <li>Age verification data</li>
+                                <li>Username and password</li>
+                            </ul>
+                            
+                            <h3>2.2. Technical Information</h3>
+                            <p>We automatically collect certain information when you visit our platform, including:</p>
+                            <ul>
+                                <li>IP address</li>
+                                <li>Browser type and version</li>
+                                <li>Device information</li>
+                                <li>Usage data and game statistics</li>
+                            </ul>
+                            
+                            <h3>2.3. Cookies and Similar Technologies</h3>
+                            <p>We use cookies and similar tracking technologies to track activity on our platform and store certain information to enhance your user experience.</p>
+                            
+                            <h2>3. How We Use Your Information</h2>
+                            <p>We use the information we collect for various purposes, including to:</p>
+                            <ul>
+                                <li>Provide, maintain, and improve our services</li>
+                                <li>Verify your age and eligibility to use our platform</li>
+                                <li>Personalize your experience and deliver content relevant to your interests</li>
+                                <li>Communicate with you about updates, security alerts, and support messages</li>
+                                <li>Monitor and analyze trends, usage, and activities in connection with our platform</li>
+                                <li>Detect, prevent, and address technical issues and unauthorized activities</li>
+                            </ul>
+                            
+                            <h2>4. Data Sharing and Disclosure</h2>
+                            <p>We do not sell your personal information to third parties. We may share information with:</p>
+                            <ul>
+                                <li>Service providers who assist in operating our platform</li>
+                                <li>Law enforcement or regulatory authorities when required by law</li>
+                                <li>Third parties in connection with a merger, acquisition, or sale of all or a portion of our assets</li>
+                            </ul>
+                            
+                            <h2>5. Data Security</h2>
+                            <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+                            
+                            <h2>6. Your Rights</h2>
+                            <p>Depending on your location, you may have certain rights regarding your personal information, such as:</p>
+                            <ul>
+                                <li>The right to access and receive a copy of your personal information</li>
+                                <li>The right to rectify inaccurate or incomplete information</li>
+                                <li>The right to request deletion of your personal information</li>
+                                <li>The right to restrict or object to our processing of your personal information</li>
+                            </ul>
+                            
+                            <h2>7. Children's Privacy</h2>
+                            <p>Our platform is not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have collected personal information from a child under 18, we will take steps to delete such information.</p>
+                            
+                            <h2>8. Changes to This Privacy Policy</h2>
+                            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+                            
+                            <h2>9. Contact Us</h2>
+                            <p>If you have any questions about this Privacy Policy, please contact us at: privacy@spinzylo.com</p>
+                        </div>
                     </div>
-                    
-                    <p>At FanFunPlay, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our social casino platform. Please read this privacy policy carefully.</p>
-                    
-                    <h3 class="mb-4">1. Information We Collect</h3>
-                    <p>We may collect information about you in a variety of ways. The information we may collect includes:</p>
-                    
-                    <h4>Personal Data</h4>
-                    <ul class="privacy-list">
-                        <li>Email address</li>
-                        <li>First name and last name</li>
-                        <li>Phone number</li>
-                        <li>Date of birth (for age verification)</li>
-                        <li>Username and password</li>
-                    </ul>
-                    
-                    <h4>Derivative Data</h4>
-                    <p>Information our servers automatically collect when you access our platform, such as your IP address, browser type, operating system, access times, and pages viewed.</p>
-                    
-                    <h4>Mobile Device Data</h4>
-                    <p>Device information, such as your mobile device ID, model, manufacturer, and information about the location of your device, if you access the platform from a mobile device.</p>
-                    
-                    <h3 class="mb-4">2. Use of Your Information</h3>
-                    <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the platform to:</p>
-                    <ul class="privacy-list">
-                        <li>Create and manage your account</li>
-                        <li>Provide and maintain our services</li>
-                        <li>Process transactions and send related information</li>
-                        <li>Send you technical notices, updates, security alerts, and support messages</li>
-                        <li>Respond to your comments, questions, and requests</li>
-                        <li>Monitor and analyze usage trends and preferences</li>
-                        <li>Prevent fraudulent transactions and monitor against theft</li>
-                        <li>Notify you of updates to our games and services</li>
-                        <li>Enable user-to-user communications</li>
-                    </ul>
-                    
-                    <h3 class="mb-4">3. Disclosure of Your Information</h3>
-                    <p>We may share information we have collected about you in certain situations. Your information may be disclosed as follows:</p>
-                    
-                    <h4>By Law or to Protect Rights</h4>
-                    <p>If we believe the release of information about you is necessary to respond to legal process, to investigate or remedy potential violations of our policies, or to protect the rights, property, and safety of others, we may share your information as permitted or required by any applicable law, rule, or regulation.</p>
-                    
-                    <h4>Third-Party Service Providers</h4>
-                    <p>We may share your information with third parties that perform services for us or on our behalf, including payment processing, data analysis, email delivery, hosting services, customer service, and marketing assistance.</p>
-                    
-                    <h4>Business Transfers</h4>
-                    <p>We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</p>
-                    
-                    <h3 class="mb-4">4. Tracking Technologies</h3>
-                    
-                    <h4>Cookies and Web Beacons</h4>
-                    <p>We may use cookies, web beacons, tracking pixels, and other tracking technologies on the platform to help customize the platform and improve your experience. Most browsers are set to accept cookies by default.</p>
-                    
-                    <h4>Website Analytics</h4>
-                    <p>We may also partner with selected third-party vendors to allow tracking technologies and remarketing services on the platform through the use of first-party cookies and third-party cookies.</p>
-                    
-                    <h3 class="mb-4">5. Data Security</h3>
-                    <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable.</p>
-                    
-                    <h3 class="mb-4">6. Policy for Children</h3>
-                    <p>We do not knowingly solicit information from or market to children under the age of 18. If you become aware of any data we have collected from children under age 18, please contact us using the contact information provided below.</p>
-                    
-                    <h3 class="mb-4">7. Your Privacy Rights</h3>
-                    <p>Depending on your location, you may have the following rights regarding your personal information:</p>
-                    <ul class="privacy-list">
-                        <li>The right to access and receive a copy of your personal information</li>
-                        <li>The right to rectify or update your personal information</li>
-                        <li>The right to request erasure of your personal information</li>
-                        <li>The right to restrict or object to our processing of your personal information</li>
-                        <li>The right to data portability</li>
-                        <li>The right to withdraw consent</li>
-                    </ul>
-                    
-                    <h3 class="mb-4">8. Changes to This Privacy Policy</h3>
-                    <p>We may update this Privacy Policy from time to time in order to reflect changes to our practices or for other operational, legal, or regulatory reasons. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
-                    
-                    <h3 class="mb-4">9. Contact Us</h3>
-                    <p>If you have questions or comments about this Privacy Policy, please contact us at:</p>
-                    <p>
-                        FanFunPlay Privacy Officer<br>
-                        Email: privacy@fanfunplay.com<br>
-                        Phone: +1 (555) 123-4567<br>
-                        Address: 123 Gaming Street, Entertainment City, EC 12345
-                    </p>
-                </div>
-                
-                <div class="text-center mt-4">
-                    <a href="index.html" class="btn btn-primary me-3">Back to Home</a>
-                    <a href="contact.html" class="btn btn-outline-light">Contact Us</a>
                 </div>
             </div>
         </div>
     </div>
+
+  
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4">
-                    <h4 class="mb-4">FanFunPlay</h4>
-                    <p class="mb-4">The ultimate destination for social casino entertainment. Play responsibly and for fun only.</p>
+                    <h4 class="mb-4">Spinzylo</h4>
+                    <p class="mb-4">The premier destination for social entertainment. Play responsibly for fun only.</p>
                     <div class="footer-notice">
-                        <p class="mb-0"><strong>Important Notice:</strong> The content on this website is intended for individuals 18 years of age or older. Fanfunplay.com is a social platform offering games for free entertainment. No real money is involved—players cannot wager, win, or exchange real currency through gameplay. Please note that progress or achievements on this site do not reflect or guarantee success in real-money gambling.</p>
-                    </div>
-                    <div class="mt-4">
-                        <h5 class="mb-3">Responsible Gaming</h5>
-                        <div class="d-flex flex-wrap">
-                            <a href="https://www.gamblingtherapy.org/" target="_blank" class="me-3 mb-2">
-                                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'><rect width='100' height='40' fill='%23f8f9fa' rx='5'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='10' fill='%23121212'>Gambling Therapy</text></svg>" alt="Gambling Therapy" class="img-fluid" style="max-height: 30px;">
-                            </a>
-                            <a href="https://www.gambleaware.org/" target="_blank" class="me-3 mb-2">
-                                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'><rect width='100' height='40' fill='%23f8f9fa' rx='5'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='10' fill='%23121212'>GambleAware</text></svg>" alt="GambleAware" class="img-fluid" style="max-height: 30px;">
-                            </a>
-                            <a href="https://www.gamstop.co.uk/" target="_blank" class="me-3 mb-2">
-                                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'><rect width='100' height='40' fill='%23f8f9fa' rx='5'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='10' fill='%23121212'>GamStop</text></svg>" alt="GamStop" class="img-fluid" style="max-height: 30px;">
-                            </a>
-                        </div>
+                        <p class="mb-0"><strong>Important Notice:</strong> This website's content is intended for individuals 18 years of age or older. Spinzylo is a social platform providing free entertainment games. No real money is involved—players cannot wager, win, or exchange real currency through gameplay.</p>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 mb-4">
@@ -174,6 +360,7 @@
                     <ul class="list-unstyled footer-links">
                         <li class="mb-2"><a href="index.html">Home</a></li>
                         <li class="mb-2"><a href="play.html">Play Games</a></li>
+                        <li class="mb-2"><a href="rewards.html">Rewards</a></li>
                         <li class="mb-2"><a href="#about">About Us</a></li>
                     </ul>
                 </div>
@@ -183,7 +370,7 @@
                         <li class="mb-2"><a href="terms.html">Terms & Conditions</a></li>
                         <li class="mb-2"><a href="privacy.html">Privacy Policy</a></li>
                         <li class="mb-2"><a href="disclaimer.html">Disclaimer</a></li>
-                        <li class="mb-2"><a href="#responsible">Responsible Gaming</a></li>
+                        <li class="mb-2"><a href="#responsible">Responsible Play</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-4 mb-4">
@@ -196,18 +383,50 @@
                     </div>
                     <div class="mt-4">
                         <h5 class="mb-3">Contact</h5>
-                        <p class="small mb-1">Email: support@fanfunplay.com</p>
+                        <p class="small mb-1">Email: support@spinzylo.com</p>
                         <p class="small">Response within 24 hours</p>
                     </div>
                 </div>
             </div>
             <hr class="my-4 bg-light">
             <div class="text-center copyright">
-                <p>&copy; 2025 FanFunPlay. All rights reserved. This is a social casino website for entertainment purposes only. No real money gambling is involved.</p>
+                <p>&copy; 2025 Spinzylo. All rights reserved. This is a social entertainment website for enjoyment purposes only. No real money transactions are involved.</p>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Determine which page to show based on URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const path = window.location.pathname;
+            const page = path.split('/').pop();
+            
+            // Hide all pages first
+            document.querySelectorAll('.page-content').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Show the appropriate page
+            if (page === 'disclaimer.html') {
+                document.getElementById('disclaimer-page').style.display = 'block';
+                document.title = 'Disclaimer - Spinzylo';
+            } else if (page === 'privacy.html') {
+                document.getElementById('privacy-page').style.display = 'block';
+                document.title = 'Privacy Policy - Spinzylo';
+            } else if (page === 'terms.html') {
+                document.getElementById('terms-page').style.display = 'block';
+                document.title = 'Terms of Service - Spinzylo';
+            }
+            
+            // Set active navigation link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === page) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -4,61 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
     <meta name="msapplication-tap-highlight" content="no"/>
-    <title>Play Games - FanFunPlay Social Casino</title>
+    <title>Play Games - Spinzylo Social Entertainment</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css" type="text/css">
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <link rel="stylesheet" href="css/orientation_utils.css" type="text/css">
     <link rel="stylesheet" href="css/ios_fullscreen.css" type="text/css">
     <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
     <style>
-        /* Base styles */
         :root {
-            --primary-color: #3a86ff;
-            --secondary-color: #ff006e;
-            --dark-color: #1a1a2e;
-            --light-color: #f8f9fa;
-            --success-color: #4cc9f0;
+            --primary-color: #7c3aed;
+            --secondary-color: #5b21b6;
+            --accent-color: #06b6d4;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-light: #f1f5f9;
+            --text-muted: #94a3b8;
+            --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
             min-height: 100vh;
             padding-top: 76px;
             margin: 0;
         }
         
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Rubik', sans-serif;
+            font-weight: 600;
+        }
+        
         /* Navigation */
         .navbar {
-            background: rgba(26, 26, 46, 0.95);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
-            padding: 15px 0;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
         }
         
         .navbar-brand {
-            font-family: 'Montserrat', sans-serif;
             font-weight: 800;
-            font-size: 28px;
+            font-size: 1.8rem;
         }
         
         .navbar-brand span {
-            color: var(--secondary-color);
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .nav-link {
             font-weight: 500;
-            margin: 0 10px;
-            transition: all 0.3s;
+            margin: 0 0.5rem;
+            position: relative;
         }
         
-        .nav-link:hover, .nav-link.active {
-            color: var(--secondary-color) !important;
-            transform: translateY(-2px);
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color) !important;
         }
         
         /* Page content */
@@ -67,22 +90,33 @@
         }
         
         .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
             font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: var(--secondary-color);
-            text-shadow: 0 2px 10px rgba(255, 0, 110, 0.3);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
         }
         
         /* Game container */
         .game-iframe-container {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
             margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         
         .game-container {
@@ -90,8 +124,8 @@
             width: 100%;
             height: 370px;
             overflow: hidden;
-            border-radius: 10px;
-            background: #0d0d1a;
+            border-radius: 15px;
+            background: #0d1324;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -99,26 +133,60 @@
         
         /* Content cards */
         .content-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 25px;
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
             margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
         
         .content-card h3 {
             color: var(--primary-color);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Alert styling */
+        .alert {
+            border-radius: 15px;
+            border: none;
+            padding: 1.25rem;
+        }
+        
+        .alert-warning {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+        }
+        
+        .alert-dark {
+            background: rgba(0, 0, 0, 0.3);
+            color: var(--text-light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         /* Footer */
         footer {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            padding: 3rem 0 1.5rem;
+            background: linear-gradient(135deg, #0a0f1d 0%, #111827 100%);
+            padding: 4rem 0 1.5rem;
             margin-top: 50px;
-            color: #f8f9fa;
+            color: var(--text-light);
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--gradient);
         }
         
         footer h4, footer h5 {
@@ -127,47 +195,48 @@
         }
         
         footer a {
-            color: #e9ecef;
+            color: var(--text-muted);
             transition: all 0.3s ease;
-        }
-        
-        footer a:hover {
-            color: var(--primary-color);
             text-decoration: none;
         }
         
+        footer a:hover {
+            color: var(--accent-color);
+        }
+        
         .footer-links li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
         }
         
         .social-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.08);
             margin-right: 0.75rem;
             transition: all 0.3s ease;
         }
         
         .social-icon:hover {
-            background: var(--primary-color);
+            background: var(--gradient);
             transform: translateY(-3px);
         }
         
         .copyright {
             font-size: 0.9rem;
             opacity: 0.8;
+            margin-top: 3rem;
         }
         
         .footer-notice {
             background: rgba(0, 0, 0, 0.3);
             border-left: 4px solid var(--primary-color);
-            padding: 1rem;
+            padding: 1.2rem;
             margin: 1.5rem 0;
-            border-radius: 4px;
+            border-radius: 8px;
             font-size: 0.9rem;
         }
         
@@ -178,7 +247,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -186,14 +255,14 @@
         }
         
         .age-content {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            padding: 40px;
-            border-radius: 15px;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 20px;
             text-align: center;
             max-width: 500px;
             width: 90%;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
         
         /* Cookie banner */
@@ -202,15 +271,14 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background: rgba(26, 26, 46, 0.95);
-            padding: 15px 0;
+            background: var(--card-bg);
+            padding: 1.2rem 0;
             z-index: 1000;
-            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
         }
         
-        /* Game canvas styling - FIXED */
+        /* Game canvas styling */
         #canvas {
             width: 100% !important;
             height: 100% !important;
@@ -265,14 +333,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(13, 13, 26, 0.8);
+            background: rgba(13, 19, 33, 0.8);
             z-index: 10;
+            border-radius: 15px;
         }
         
         .spinner-border {
             width: 3rem;
             height: 3rem;
-            color: var(--secondary-color);
+            color: var(--accent-color);
         }
         
         /* Responsive adjustments */
@@ -292,43 +361,83 @@
             .age-content {
                 padding: 30px 20px;
             }
+            
+            .content-card {
+                padding: 1.5rem;
+            }
         }
         
         @media (max-width: 576px) {
             .game-container {
                 height: 250px;
             }
+            
+            .game-iframe-container {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* List styling */
+        ul {
+            padding-left: 1.2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        /* Button styling */
+        .btn-primary {
+            background: var(--gradient);
+            border: none;
+            border-radius: 50px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+        }
+        
+        .btn-sm {
+            padding: 8px 20px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body ondragstart="return false;" ondrop="return false;">
-   
+    <!-- Age Verification Modal -->
+    
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <i class="fas fa-dice me-2"></i>Fan<span>Fun</span>Play
+                <i class="fas fa-coins me-2"></i>Spin<span>zylo</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+               <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link active" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="play.html">Play</a>
+                        <a class="nav-link" href="play.html">Play</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="disclaimer.html">Disclaimer</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="terms.html">Terms</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="privacy.html">Privacy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="disclaimer.html">Disclaimer</a>
                     </li>
                 </ul>
             </div>
@@ -338,14 +447,14 @@
     <!-- Play Page Content -->
     <div class="page-content">
         <div class="container">
-            <h2 class="text-center section-title">Play Social Casino Games</h2>
-            <div class="alert alert-warning text-center mb-5">
-                <i class="fas fa-exclamation-triangle me-2"></i> <strong>Important:</strong> These are social casino games for entertainment purposes only. No real money gambling is involved.
+            <h2 class="text-center section-title">Play Social Entertainment Games</h2>
+            <div class="alert alert-warning text-center mb-5 mx-auto" style="max-width: 800px;">
+                <i class="fas fa-exclamation-triangle me-2"></i> <strong>Important:</strong> These are social entertainment games for enjoyment purposes only. No real money transactions are involved.
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="game-iframe-container">
-                        <h3 class="text-center mb-4">Lucky Slots - Social Casino Game</h3>
+                        <h3 class="text-center mb-4">Lucky Spins - Social Entertainment Game</h3>
                         <div class="game-container">
                             <!-- Client's game container -->
                             <div id="game-wrapper">
@@ -364,12 +473,12 @@
                             </div>
                         </div>
                         <div class="mt-3 text-center">
-                            <p class="small">This social casino game is provided for entertainment purposes only. No real money is involved.</p>
+                            <p class="small">This social entertainment game is provided for enjoyment purposes only. No real money is involved.</p>
                         </div>
                     </div>
                     <div class="content-card mt-4">
                         <h3 class="mb-3">How to Play</h3>
-                        <p>Lucky Slots is an exciting social slot game with a classic theme. Spin the reels to match symbols and earn virtual rewards. Look out for special bonus symbols that can trigger free spins or multiplier rewards!</p>
+                        <p>Lucky Spins is an exciting social game with a classic theme. Spin the reels to match symbols and earn virtual rewards. Look out for special bonus symbols that can trigger free spins or multiplier rewards!</p>
                         <ul>
                             <li>Click the SPIN button to start the game</li>
                             <li>Match 3 or more symbols on a payline to earn virtual rewards</li>
@@ -382,7 +491,7 @@
                     <!-- Additional Content -->
                     <div class="content-card mt-4">
                         <h3 class="mb-3">About Our Social Games</h3>
-                        <p>Fanfunplay.com is dedicated to providing safe, entertaining, and free-to-play social gaming experiences. Our games are designed strictly for players 18 years of age or older and do not include any form of real-money wagering or gambling.</p>
+                        <p>Spinzylo is dedicated to providing safe, entertaining, and free-to-play social gaming experiences. Our games are designed strictly for players 18 years of age or older and do not include any form of real-money transactions.</p>
                         
                         <p>As developers, we want to emphasize that all titles offered on this site are created solely for casual entertainment. Player progress, rewards, or achievements within our games have no monetary value and cannot be transferred, exchanged, or redeemed for real currency.</p>
                         
@@ -398,22 +507,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4">
-                    <h4 class="mb-4">FanFunPlay</h4>
-                    <p class="mb-4">The ultimate destination for social casino entertainment. Play responsibly and for fun only.</p>
+                    <h4 class="mb-4">Spinzylo</h4>
+                    <p class="mb-4">The premier destination for social entertainment. Play responsibly for fun only.</p>
                     <div class="footer-notice">
-                        <p class="mb-0"><strong>Important Notice:</strong> The content on this website is intended for individuals 18 years of age or older. Fanfunplay.com is a social platform offering games for free entertainment. No real money is involved—players cannot wager, win, or exchange real currency through gameplay. Please note that progress or achievements on this site do not reflect or guarantee success in real-money gambling.</p>
+                        <p class="mb-0"><strong>Important Notice:</strong> This website's content is intended for individuals 18 years of age or older. Spinzylo is a social platform providing free entertainment games. No real money is involved—players cannot wager, win, or exchange real currency through gameplay.</p>
                     </div>
                     <div class="mt-4">
-                        <h5 class="mb-3">Responsible Gaming</h5>
+                        <h5 class="mb-3">Responsible Play</h5>
                         <div class="d-flex flex-wrap">
                             <a href="https://www.gamblingtherapy.org/" target="_blank" class="me-3 mb-2">
-                                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'><rect width='100' height='40' fill='%23f8f9fa' rx='5'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='10' fill='%23121212'>Gambling Therapy</text></svg>" alt="Gambling Therapy" class="img-fluid" style="max-height: 30px;">
+                                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'><rect width='100' height='40' fill='%23f8f9fa' rx='5'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='10' fill='%23121212'>Entertainment Therapy</text></svg>" alt="Entertainment Therapy" class="img-fluid" style="max-height: 30px;">
                             </a>
                             <a href="https://www.gambleaware.org/" target="_blank" class="me-3 mb-2">
-                                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'><rect width='100' height='40' fill='%23f8f9fa' rx='5'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='10' fill='%23121212'>GambleAware</text></svg>" alt="GambleAware" class="img-fluid" style="max-height: 30px;">
-                            </a>
-                            <a href="https://www.gamstop.co.uk/" target="_blank" class="me-3 mb-2">
-                                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'><rect width='100' height='40' fill='%23f8f9fa' rx='5'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='10' fill='%23121212'>GamStop</text></svg>" alt="GamStop" class="img-fluid" style="max-height: 30px;">
+                                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='40' viewBox='0 0 100 40'><rect width='100' height='40' fill='%23f8f9fa' rx='5'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='10' fill='%23121212'>PlayAware</text></svg>" alt="PlayAware" class="img-fluid" style="max-height: 30px;">
                             </a>
                         </div>
                     </div>
@@ -422,7 +528,8 @@
                     <h5 class="mb-4">Quick Links</h5>
                     <ul class="list-unstyled footer-links">
                         <li class="mb-2"><a href="index.html">Home</a></li>
-                        <li class="mb-2"><a href="play.html">Play Games</a></li>
+                        <li class="mb-2"><a href="games.html">Play Games</a></li>
+                        <li class="mb-2"><a href="rewards.html">Rewards</a></li>
                         <li class="mb-2"><a href="#about">About Us</a></li>
                     </ul>
                 </div>
@@ -432,7 +539,7 @@
                         <li class="mb-2"><a href="terms.html">Terms & Conditions</a></li>
                         <li class="mb-2"><a href="privacy.html">Privacy Policy</a></li>
                         <li class="mb-2"><a href="disclaimer.html">Disclaimer</a></li>
-                        <li class="mb-2"><a href="#responsible">Responsible Gaming</a></li>
+                        <li class="mb-2"><a href="#responsible">Responsible Play</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-4 mb-4">
@@ -445,14 +552,14 @@
                     </div>
                     <div class="mt-4">
                         <h5 class="mb-3">Contact</h5>
-                        <p class="small mb-1">Email: support@fanfunplay.com</p>
+                        <p class="small mb-1">Email: support@spinzylo.com</p>
                         <p class="small">Response within 24 hours</p>
                     </div>
                 </div>
             </div>
             <hr class="my-4 bg-light">
             <div class="text-center copyright">
-                <p>&copy; 2025 FanFunPlay. All rights reserved. This is a social casino website for entertainment purposes only. No real money gambling is involved.</p>
+                <p>&copy; 2025 Spinzylo. All rights reserved. This is a social entertainment website for enjoyment purposes only. No real money transactions are involved.</p>
             </div>
         </div>
     </footer>
@@ -491,6 +598,43 @@
     <script type="text/javascript" src="js/CRechargePanel.js"></script>
 
     <script>
+        // Age verification function
+        function verifyAge(isAdult) {
+            if (isAdult) {
+                document.getElementById('age-modal').style.display = 'none';
+                // Show cookie banner after age verification
+                setTimeout(function() {
+                    document.getElementById('cookie-banner').style.display = 'block';
+                }, 2000);
+            } else {
+                alert('You must be at least 18 years old to access this website.');
+                window.location.href = 'https://www.google.com';
+            }
+        }
+        
+        // Cookie consent function
+        function acceptCookies() {
+            document.getElementById('cookie-banner').style.display = 'none';
+            // Set a cookie to remember the consent
+            document.cookie = "cookieConsent=true; max-age=2592000; path=/"; // 30 days
+        }
+        
+        // Check if user has already verified age
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('ageVerified')) {
+                document.getElementById('age-modal').style.display = 'none';
+            }
+            
+            // Check if cookie consent was already given
+            if (document.cookie.indexOf('cookieConsent=true') === -1) {
+                // Show cookie banner after a delay if age is verified
+                setTimeout(function() {
+                    document.getElementById('cookie-banner').style.display = 'block';
+                }, 3000);
+            }
+        });
+        
         // Wait for the DOM to be fully loaded before initializing the game
         document.addEventListener('DOMContentLoaded', function() {
             // Check if all required game classes are defined
